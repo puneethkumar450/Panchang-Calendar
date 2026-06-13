@@ -36,23 +36,6 @@ Panchang Calendar is a traditional Indian calendar web app with Panchang details
   - Odia
 - Traditional temple-inspired UI with month shrine artwork
 
-## Project Files
-
-- [index.html](/Users/puneeth/Documents/Codex/2026-06-13/panchang-calendar/index.html)
-- [styles.css](/Users/puneeth/Documents/Codex/2026-06-13/panchang-calendar/styles.css)
-- [script.js](/Users/puneeth/Documents/Codex/2026-06-13/panchang-calendar/script.js)
-
-## Run Locally
-
-Open the app directly in a browser:
-
-```bash
-open /Users/puneeth/Documents/Codex/2026-06-13/panchang-calendar/index.html
-```
-
-Or just open:
-
-`file:///Users/puneeth/Documents/Codex/2026-06-13/panchang-calendar/index.html`
 
 ## Notes
 
