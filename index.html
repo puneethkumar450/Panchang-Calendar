@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panchang Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Epilogue:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" id="hero-eyebrow">Panchang • Regional Calendars • Daily Muhurtham</p>
+          <h1 id="hero-title">Traditional Indian Calendar</h1>
+          <p class="hero-text" id="hero-text">
+            A full-year calendar with Panchang details, Rahu Kalam, Yamagandam,
+            Ekadashi, zodiac, and Tamil, Telugu, Gujarati, and Bengali calendar
+            overlays.
+          </p>
+        </div>
+        <div class="hero-blessing">
+          <p class="blessing-title" id="month-shrine-label">Month Shrine</p>
+          <div class="deity-card" id="deity-card">
+            <div class="deity-art" id="deity-art"></div>
+            <div class="deity-copy">
+              <p class="deity-month" id="deity-month"></p>
+              <h2 id="deity-name"></h2>
+              <p id="deity-note"></p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="toolbar">
+        <div class="field-group">
+          <label for="year-select" id="year-label">Year</label>
+          <select id="year-select"></select>
+        </div>
+        <div class="field-group">
+          <label for="city-select" id="city-label">City</label>
+          <select id="city-select"></select>
+        </div>
+        <div class="field-group">
+          <label for="language-select" id="language-label">Language</label>
+          <select id="language-select"></select>
+        </div>
+        <div class="field-group wide">
+          <label id="display-options-label">Display On Calendar</label>
+          <div class="toggle-grid">
+            <label class="toggle-pill"><input type="checkbox" data-setting="nationalHolidays" /><span id="toggle-national-holidays">National Holidays</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="publicHolidays" /><span id="toggle-public-holidays">Public Holidays</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="stateHolidays" /><span id="toggle-state-holidays">State Holidays</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="festivals" /><span id="toggle-festivals">Festivals</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="rahu" /><span id="toggle-rahu">Rahu Kalam</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="ketu" /><span id="toggle-ketu">Ketu / Yamagandam</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="ekadashi" /><span id="toggle-ekadashi">Ekadashi</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="zodiac" /><span id="toggle-zodiac">Zodiac</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="tamil" /><span id="toggle-tamil">Tamil</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="telugu" /><span id="toggle-telugu">Telugu</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="gujarati" /><span id="toggle-gujarati">Gujarati</span></label>
+            <label class="toggle-pill"><input type="checkbox" data-setting="bengali" /><span id="toggle-bengali">Bengali</span></label>
+          </div>
+        </div>
+      </section>
+
+      <main class="main-layout">
+        <aside class="detail-panel">
+          <div class="detail-card">
+            <p class="eyebrow" id="selected-day-eyebrow">Selected Day</p>
+            <h2 id="selected-date-label"></h2>
+            <p class="detail-subtitle" id="selected-meta"></p>
+            <div class="detail-list" id="selected-day-list"></div>
+          </div>
+
+          <div class="detail-card">
+            <p class="eyebrow" id="included-eyebrow">Included</p>
+            <div class="detail-list compact">
+              <div class="detail-item" id="included-item-1">Astronomical tithi, nakshatra, yoga, and karana</div>
+              <div class="detail-item" id="included-item-2">Rahu Kalam, Yamagandam, and Gulika by city sunrise/sunset</div>
+              <div class="detail-item" id="included-item-3">Separate national, public, and selected-state holidays</div>
+              <div class="detail-item" id="included-item-4">Solar Tamil and Bengali dates</div>
+              <div class="detail-item" id="included-item-5">Lunar Telugu and Gujarati style month/tithi labels</div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="calendar-panel">
+          <header class="calendar-header">
+            <button id="prev-month" class="nav-button" aria-label="Previous month">
+              Previous
+            </button>
+            <div class="calendar-title">
+              <p class="eyebrow" id="calendar-view-eyebrow">Calendar View</p>
+              <h2 id="month-label"></h2>
+            </div>
+            <button id="next-month" class="nav-button" aria-label="Next month">
+              Next
+            </button>
+          </header>
+
+          <div class="weekday-row" id="weekday-row"></div>
+          <section class="calendar-grid" id="calendar-grid"></section>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

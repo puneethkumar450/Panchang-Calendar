@@ -1,0 +1,487 @@
+:root {
+  --bg: #f7ecda;
+  --panel: rgba(255, 248, 236, 0.86);
+  --panel-strong: rgba(137, 32, 21, 0.88);
+  --card: rgba(255, 252, 246, 0.94);
+  --card-soft: rgba(247, 228, 196, 0.55);
+  --line: rgba(117, 58, 36, 0.18);
+  --text: #3a2017;
+  --muted: #7a5a48;
+  --accent: #9a2f1d;
+  --gold: #b88525;
+  --maroon: #6a1c15;
+  --green: #335c40;
+  --shadow: 0 30px 60px rgba(84, 38, 17, 0.14);
+  --holiday: #245d41;
+  --festival: #a33e2d;
+  --timing: #2458a3;
+  --ekadashi: #996515;
+  --zodiac: #7c3aed;
+  --tamil: #8b5cf6;
+  --telugu: #0f766e;
+  --gujarati: #d97706;
+  --bengali: #db2777;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "Epilogue", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 200, 97, 0.3), transparent 24%),
+    radial-gradient(circle at top right, rgba(154, 47, 29, 0.28), transparent 24%),
+    linear-gradient(180deg, #f9f1e3 0%, #f2e1c2 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image:
+    linear-gradient(90deg, transparent 49%, rgba(184, 133, 37, 0.12) 50%, transparent 51%),
+    linear-gradient(transparent 49%, rgba(184, 133, 37, 0.12) 50%, transparent 51%);
+  background-size: 26px 26px;
+}
+
+.page-shell {
+  width: min(1480px, calc(100vw - 32px));
+  margin: 24px auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero,
+.toolbar,
+.detail-card,
+.calendar-panel {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.hero {
+  border-radius: 32px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(184, 133, 37, 0.24);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 6vw, 4.7rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.hero-text,
+.detail-subtitle,
+.deity-copy p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.hero-blessing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blessing-title {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.deity-card {
+  background: linear-gradient(180deg, rgba(106, 28, 21, 0.96), rgba(140, 55, 30, 0.96));
+  color: #fff9ec;
+  border-radius: 28px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 18px;
+  border: 1px solid rgba(255, 221, 153, 0.25);
+}
+
+.deity-art {
+  min-height: 220px;
+  border-radius: 22px;
+  background-color: rgba(255, 249, 236, 0.08);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid rgba(255, 223, 160, 0.22);
+}
+
+.deity-month {
+  color: rgba(255, 244, 224, 0.92);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+.deity-copy h2 {
+  font-size: 2.15rem;
+  color: #fff7e8;
+}
+
+.deity-copy p {
+  color: rgba(255, 239, 210, 0.9);
+}
+
+.toolbar {
+  border-radius: 28px;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 160px 200px 200px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-group label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.field-group select {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--text);
+  font: inherit;
+}
+
+.field-group.wide {
+  min-width: 0;
+}
+
+.toggle-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.toggle-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(255, 252, 246, 0.9);
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.toggle-pill input {
+  accent-color: var(--accent);
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 20px;
+}
+
+.detail-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-card {
+  border-radius: 28px;
+  padding: 22px;
+}
+
+.detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.detail-item {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--card-soft);
+  border: 1px solid var(--line);
+  line-height: 1.45;
+}
+
+.detail-list.compact .detail-item {
+  font-size: 0.92rem;
+}
+
+.calendar-panel {
+  border-radius: 32px;
+  padding: 24px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.calendar-title {
+  text-align: center;
+}
+
+.nav-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  color: #fff8ea;
+  background: linear-gradient(180deg, #9a2f1d 0%, #7c2417 100%);
+}
+
+.weekday-row,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.weekday-row {
+  margin-bottom: 10px;
+}
+
+.weekday {
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.calendar-day {
+  min-height: 162px;
+  border-radius: 22px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.97), rgba(249, 236, 214, 0.92));
+  border: 1px solid rgba(154, 47, 29, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.calendar-day:hover,
+.calendar-day.is-selected {
+  transform: translateY(-2px);
+  border-color: rgba(184, 133, 37, 0.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 18px 26px rgba(107, 50, 26, 0.12);
+}
+
+.calendar-day.is-muted {
+  opacity: 0.42;
+}
+
+.day-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.day-number {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.day-month {
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.tithi-line {
+  font-size: 0.83rem;
+  color: var(--maroon);
+  font-weight: 700;
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-line {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.32;
+}
+
+.badge-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 0.69rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.badge.holiday {
+  color: var(--holiday);
+  background: rgba(36, 93, 65, 0.12);
+}
+
+.badge.festival {
+  color: var(--festival);
+  background: rgba(163, 62, 45, 0.12);
+}
+
+.badge.rahu,
+.badge.ketu {
+  color: var(--timing);
+  background: rgba(36, 88, 163, 0.12);
+}
+
+.badge.ekadashi {
+  color: var(--ekadashi);
+  background: rgba(153, 101, 21, 0.12);
+}
+
+.badge.zodiac {
+  color: var(--zodiac);
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.badge.tamil {
+  color: var(--tamil);
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.badge.telugu {
+  color: var(--telugu);
+  background: rgba(15, 118, 110, 0.12);
+}
+
+.badge.gujarati {
+  color: var(--gujarati);
+  background: rgba(217, 119, 6, 0.12);
+}
+
+.badge.bengali {
+  color: var(--bengali);
+  background: rgba(219, 39, 119, 0.12);
+}
+
+@media (max-width: 1180px) {
+  .hero,
+  .main-layout,
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .deity-card {
+    grid-template-columns: 150px 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100vw - 16px, 100%);
+    margin: 8px auto 20px;
+    gap: 14px;
+  }
+
+  .hero,
+  .toolbar,
+  .calendar-panel,
+  .detail-card {
+    border-radius: 22px;
+    padding: 16px;
+  }
+
+  .deity-card {
+    grid-template-columns: 1fr;
+  }
+
+  .deity-art {
+    min-height: 180px;
+  }
+
+  .weekday-row,
+  .calendar-grid {
+    gap: 8px;
+  }
+
+  .calendar-day {
+    min-height: 152px;
+    padding: 10px;
+  }
+
+  .calendar-header {
+    flex-wrap: wrap;
+  }
+
+  .calendar-title {
+    width: 100%;
+    order: -1;
+  }
+}
